@@ -19,7 +19,7 @@
   overflow: hidden;
   background-color: #ffffff;
   max-width: 350px;
-  height:auto;
+  height: auto;
   margin: 0 auto;
 }
 
@@ -29,17 +29,16 @@
 }
 
 .card-img-top {
-  width: 100%;          
-  height: auto;   
-  max-height:auto;     
-  object-fit: contain;   
-  object-position: center; 
-  display: block;       
-  margin: 0 auto;       
-  border-top-left-radius: 15px;  
+  width: 100%;
+  height: auto;
+  max-height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+  border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
-
 
 .card-title {
   color: #3b42a7;
@@ -47,7 +46,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* Description text */
 .card-text {
   font-size: 0.95rem;
   color: #555;
@@ -78,5 +76,4 @@
   .projects-section {
     padding: 4rem 2rem;
   }
-  
 }

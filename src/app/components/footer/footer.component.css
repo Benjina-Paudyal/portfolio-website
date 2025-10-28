@@ -1,8 +1,7 @@
-
 .custom-footer {
-  background-color: #3f51b5; 
+  background-color: #3f51b5;
   color: #ffffff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 1.5rem 0;
 }
 
@@ -26,8 +25,7 @@
 .footer-tagline {
   font-weight: 500;
   margin-bottom: 0.5rem;
-  color:#ffffff;
-
+  color: #ffffff;
 }
 
 .footer-email-link i {
@@ -42,7 +40,7 @@
 
 .footer-right {
   display: flex;
-  gap: 15px; /* space between icons */
+  gap: 15px;
 }
 
 .footer-icon {
@@ -52,7 +50,7 @@
 }
 
 .footer-icon:hover {
-  color: #ffeb3b; 
+  color: #ffeb3b;
   transform: translateY(-2px);
 }
 
