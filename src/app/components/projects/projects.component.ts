@@ -32,7 +32,7 @@ export class ProjectsComponent {
       title: 'Portfolio Website',
       description: 'Responsive personal portfolio built with Angular and Bootstrap.',
       image: 'assets/portfolio.png',
-      github: '#'
+      github: 'https://github.com/Benjina-Paudyal/portfolio-website'
     }
   ];
 }
