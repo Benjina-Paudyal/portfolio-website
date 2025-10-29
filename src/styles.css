@@ -1,3 +1,4 @@
+/* Reset & Box Sizing */
 *,
 *::before,
 *::after {
@@ -10,19 +11,19 @@ html,
 body {
   scroll-behavior: smooth;
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #333;
   background-color: #f5f5f7;
+   line-height: 1.6;
 }
 
 .main-content {
   overflow: visible;
   height: auto;
   margin-top: 0;
-  padding: 3rem 1rem;
-  background-color: #e8e9eb;
+  padding: 3rem 2rem;
+ background-color: #ffffff;
   border-radius: 20px;
-
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -30,11 +31,43 @@ body {
 .projects-section,
 .resume-section,
 .contact-section {
-  background: none;
-  border-radius: 0;
-  padding: 0;
+ padding: 4rem 2rem;
 }
 
 section {
-  scroll-margin-top: 70px;
+  scroll-margin-top: 80px;
 }
+
+h2 {
+  color: #3f51b5;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #ffeb3b;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+
+/* Responsive adjustment */
+@media (max-width: 992px) {
+  .main-content {
+    padding: 2rem 1rem;
+  }
+
+  .about-section,
+  .projects-section,
+  .resume-section,
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+}
+
+
