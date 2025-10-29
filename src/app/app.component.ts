@@ -6,11 +6,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent, AboutComponent, ResumeComponent, ProjectsComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent, AboutComponent, ResumeComponent, ProjectsComponent,ContactComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
