@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements AfterViewInit {
    projects = [
     {
       title: 'StudyJet- A Course Management System',
@@ -35,5 +35,23 @@ export class ProjectsComponent {
       github: 'https://github.com/Benjina-Paudyal/portfolio-website'
     }
   ];
+
+  ngAfterViewInit() {
+    const section = document.querySelector('.projects-section');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            section?.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (section) observer.observe(section);
+  }
 }
+
+
 
