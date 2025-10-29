@@ -1,18 +1,28 @@
 
 .about-section {
-  padding: 5rem 1rem;
+  padding: 5rem 2rem;
   background-color: #ffffff; 
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  margin: 3rem 1rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .about-section .container {
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.about-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-section .about-image {
@@ -32,13 +42,13 @@
 }
 
 .about-section .about-text h1.name {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #3f51b5;
   margin-bottom: 0.5rem;
 }
 
 .about-section .about-text h3.subtitle {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: #3b42a7;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -49,6 +59,8 @@
   line-height: 1.6;
   margin-bottom: 1.2rem;
   color:#555;
+  text-align: justify; 
+  max-width: 600px;   
 }
 
 /* fade-in animation */
@@ -75,7 +87,7 @@
   }
 
   .about-section .about-image {
-    flex: 1;
+    flex: 2;
     margin-bottom: 0;
     margin-right: 2rem;
   }
@@ -86,5 +98,12 @@
 
   .about-section .about-text {
     flex: 2;
+  }
+   .about-section .about-text h1.name {
+    font-size: 2.5rem;
+  }
+
+  .about-section .about-text h3.subtitle {
+    font-size: 1.6rem;
   }
 }

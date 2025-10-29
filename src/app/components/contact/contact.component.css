@@ -1,0 +1,64 @@
+.contact-section {
+  padding: 5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin: 3rem 1rem;
+  opacity: 1; /* <-- make visible */
+  transform: translateY(0); /* <-- reset position */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contact-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-section h2 {
+  color: #3f51b5;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.contact-card {
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.contact-card h5 {
+  color: #3f51b5;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.contact-card a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-card a:hover {
+  color: #3b42a7;
+}
+
+.btn-primary {
+  background-color: #3f51b5;
+  border-color: #3f51b5;
+  border-radius: 25px;
+  padding: 0.45rem 1.2rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #303f9f;
+}

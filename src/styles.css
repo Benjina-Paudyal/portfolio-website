@@ -55,7 +55,6 @@ h2::after {
   border-radius: 2px;
 }
 
-
 /* Responsive adjustment */
 @media (max-width: 992px) {
   .main-content {

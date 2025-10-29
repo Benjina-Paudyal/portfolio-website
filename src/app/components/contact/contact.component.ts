@@ -2,15 +2,16 @@ import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-resume',
+  selector: 'app-contact',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.css']
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
-export class ResumeComponent implements AfterViewInit {
+export class ContactComponent implements AfterViewInit {
+
   ngAfterViewInit() {
-    const section = document.querySelector('.resume-section');
+    const section = document.querySelector('.contact-section');
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -22,7 +23,7 @@ export class ResumeComponent implements AfterViewInit {
       },
       { threshold: 0.3 }
     );
+
     if (section) observer.observe(section);
   }
 }
-
