@@ -1,9 +1,7 @@
 <section id="contact" class="contact-section py-5">
   <div class="container">
     <h2 class="text-center mb-4">Contact Me</h2>
-
     <div class="row justify-content-center">
-      <!-- Contact Info -->
       <div class="col-md-6 mb-4">
         <div class="contact-card p-4">
           <h5>Email</h5>
@@ -15,31 +13,70 @@
           <h5>Social</h5>
           <p>
             <a href="https://github.com/Benjina-Paudyal" target="_blank">
-              <i class="fab fa-github me-2"></i> GitHub
-            </a><br>
-            <a href="https://www.linkedin.com/in/benjinapaudyal/" target="_blank">
+              <i class="fab fa-github me-2"></i> GitHub </a
+            ><br />
+            <a
+              href="https://www.linkedin.com/in/benjinapaudyal/"
+              target="_blank"
+            >
               <i class="fab fa-linkedin me-2"></i> LinkedIn
             </a>
           </p>
         </div>
       </div>
 
-      <!-- Optional Contact Form -->
       <div class="col-md-6 mb-4">
         <div class="contact-card p-4">
           <h5>Send me a message</h5>
-          <form>
+          <form #form="ngForm" (ngSubmit)="sendEmail(form)">
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Your Name" required>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your Name"
+                required
+                [(ngModel)]="name"
+                name="name"
+              />
             </div>
             <div class="mb-3">
-              <input type="email" class="form-control" placeholder="Your Email" required>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your Email"
+                required
+                [(ngModel)]="email"
+                name="email"
+              />
             </div>
             <div class="mb-3">
-              <textarea class="form-control" rows="4" placeholder="Message" required></textarea>
+              <textarea
+                class="form-control"
+                rows="4"
+                placeholder="Message"
+                required
+                [(ngModel)]="message"
+                name="message"
+              ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Send</button>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              [disabled]="sending"
+            >
+              {{ sending ? "Sending..." : "Send" }}
+            </button>
           </form>
+          <p
+            class="text-center mt-2 status-message"
+            [ngClass]="{
+              'text-success': statusType === 'success',
+              'text-danger': statusType === 'error',
+              hide: !statusMessage
+            }"
+          >
+            {{ statusMessage }}
+          </p>
         </div>
       </div>
     </div>

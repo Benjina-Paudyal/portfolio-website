@@ -4,8 +4,8 @@
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   margin: 3rem 1rem;
-  opacity: 1; /* <-- make visible */
-  transform: translateY(0); /* <-- reset position */
+  opacity: 1; 
+  transform: translateY(0); 
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -62,3 +62,12 @@
 .btn-primary:hover {
   background-color: #303f9f;
 }
+
+.status-message {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+.status-message.hide {
+  opacity: 0;
+}
+

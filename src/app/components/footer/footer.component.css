@@ -52,7 +52,7 @@
   color: #ffeb3b;
 }
 
-/* Responsive */
+
 @media (min-width: 992px) {
   .footer-icon {
     font-size: 1.6rem;

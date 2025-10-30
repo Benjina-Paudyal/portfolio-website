@@ -6,41 +6,49 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements AfterViewInit {
-   projects = [
+  projects = [
     {
       title: 'StudyJet- A Course Management System',
-      description: 'Full-stack app with Angular frontend, ASP.NET Web API backend, SQL database.',
+      description:
+        'A Full-stack web app where user can buy and study the courses available.',
       image: 'assets/studyjet.png',
-      github: 'https://github.com/Benjina-Paudyal/StudyJet'
+      github: 'https://github.com/Benjina-Paudyal/StudyJet',
+      tech: ['Angular', 'ASP.NET', 'SQL', 'Bootstrap'],
     },
     {
       title: 'Movie Management System',
-      description: 'A full-stack web application to manage movies, genres, and directors. Users can add, edit, delete, and search movies, and view statistics with charts..',
+      description:
+        'A full-stack web app to manage movies, genres, and directors.',
       image: 'assets/moviemanagement.png',
-      github: 'https://github.com/Benjina-Paudyal/movie_management_system'
+      github: 'https://github.com/Benjina-Paudyal/movie_management_system',
+      tech: ['Python', 'Flask', 'Jinja2','SQLite', 'Bootstrap'],
     },
     {
       title: 'WaveRiders Squirrel Surf School',
       description: 'A responsive HTML/CSS website for a fictional surf school.',
       image: 'assets/waveriders.png',
-      github: 'https://github.com/Benjina-Paudyal/Waveriders_Responsive_Website'
+      github:
+        'https://github.com/Benjina-Paudyal/Waveriders_Responsive_Website',
+      tech: ['HTML', 'CSS', 'JavaScript'],
     },
     {
       title: 'Portfolio Website',
-      description: 'Responsive personal portfolio built with Angular and Bootstrap.',
+      description:
+        'Responsive personal portfolio built with Angular and Bootstrap.',
       image: 'assets/portfolio.png',
-      github: 'https://github.com/Benjina-Paudyal/portfolio-website'
-    }
+      github: 'https://github.com/Benjina-Paudyal/portfolio-website',
+      tech: ['Angular', 'Bootstrap', 'CSS', 'HTML'],
+    },
   ];
 
   ngAfterViewInit() {
     const section = document.querySelector('.projects-section');
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             section?.classList.add('visible');
             observer.unobserve(entry.target);
@@ -52,6 +60,3 @@ export class ProjectsComponent implements AfterViewInit {
     if (section) observer.observe(section);
   }
 }
-
-
-

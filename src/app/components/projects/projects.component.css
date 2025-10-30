@@ -2,7 +2,7 @@
   padding: 5rem 2rem;
   background-color: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   margin: 3rem 1rem;
   text-align: center;
   overflow: hidden;
@@ -19,7 +19,7 @@
 .projects-section .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0; 
+  padding: 0;
 }
 
 .projects-section h2 {
@@ -30,6 +30,9 @@
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: none;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -38,15 +41,24 @@
   margin-bottom: 1.5rem;
 }
 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+}
+
+.card-body a.btn {
+  margin-top: auto;
+}
+
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* Image styling */
 .card-img-container {
   overflow: hidden;
-  
 }
 
 .card-img-top {
@@ -60,7 +72,6 @@
   transform: scale(1.05);
 }
 
-/* Text and button */
 .card-title {
   color: #3b42a7;
   font-size: 1.1rem;
@@ -72,15 +83,31 @@
   font-size: 0.95rem;
   color: #555;
   margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.tech-stack .badge {
+  background-color: #f1f3f8 !important; /* soft light gray */
+  color: #3f51b5 !important; /* your primary accent color */
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 8px;
+  margin: 2px;
+  font-weight: 500;
+  border: 1px solid #d1d9ff; /* subtle border for definition */
+  display: inline-block;
 }
 
 .btn-primary {
   background-color: #3f51b5;
   border-color: #3f51b5;
   border-radius: 25px;
-  padding: 0.45rem 1.2rem;
-  font-size: 0.9rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  width: fit-content;
+  align-self: center;
   transition: all 0.3s ease;
+  margin-top: auto;
 }
 
 .btn-primary:hover {
