@@ -1,42 +1,22 @@
-<section id="projects" class="projects-section py-5">
+<section #projectSection id="projects" class="projects-section py-5">
   <div class="container">
     <h2 class="text-center mb-5">Projects</h2>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4 mb-4" *ngFor="let project of projects">
         <div class="card project-card h-100 shadow-sm">
           <div class="card-img-container">
-            <img
-              [src]="project.image"
-              [alt]="project.title"
-              class="card-img-top"
-            />
+            <img [src]="project.image" [alt]="project.title" class="card-img-top" />
           </div>
 
           <div class="card-body text-center d-flex flex-column">
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ project.description }}</p>
             <div class="tech-stack mt-2 mb-3">
-              <!-- <span
-                *ngFor="let tech of project.tech"
-                class="badge bg-secondary me-1 mb-1"
-              >
+              <span *ngFor="let tech of project.tech" class="badge" [ngClass]="'tech-' + tech">
                 {{ tech }}
-              </span> -->
-                <span
-                  *ngFor="let tech of project.tech"
-                  class="badge"
-                  [ngClass]="'tech-' + tech"
-                >
-                  {{ tech }}
-                </span>
-              </div>
-          
-
-            <a
-              [href]="project.github"
-              target="_blank"
-              class="btn btn-primary btn-sm mt-auto"
-            >
+              </span>
+            </div>
+            <a [href]="project.github" target="_blank" class="btn btn-primary btn-sm mt-auto">
               <i class="bi bi-github"></i> View on GitHub
             </a>
           </div>

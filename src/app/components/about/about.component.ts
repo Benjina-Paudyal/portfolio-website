@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,21 +9,22 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements AfterViewInit {
-  ngAfterViewInit(): void {
-    const about = document.querySelector('.about-section');
-    if (!about) return; // safety check
 
+  @ViewChild('aboutSection') about!: ElementRef;
+
+  ngAfterViewInit(): void {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
-            about.classList.add('visible');
-            observer.unobserve(about);
+            this.about.nativeElement.classList.add('visible');
+            observer.unobserve(this.about.nativeElement);
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 } // Trigger when 30% visible
     );
-    observer.observe(about);
+
+    observer.observe(this.about.nativeElement);
   }
 }

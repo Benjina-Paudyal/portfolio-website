@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, NgZone } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  NgZone,
+  ViewChild,
+} from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -11,6 +17,8 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements AfterViewInit {
+  @ViewChild('contactSection') contactSection!: ElementRef;
+
   name: string = '';
   email: string = '';
   message: string = '';
@@ -65,18 +73,23 @@ export class ContactComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const section = document.querySelector('.contact-section');
+    const section = this.contactSection.nativeElement;
+    const cards = section.querySelectorAll('.contact-card');
+
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            section?.classList.add('visible');
-            observer.unobserve(entry.target);
+            cards.forEach((card: HTMLElement, index: number) => {
+              setTimeout(() => card.classList.add('visible'), index * 150);
+            });
+            obs.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.3 }
     );
-    if (section) observer.observe(section);
+
+    observer.observe(section);
   }
 }

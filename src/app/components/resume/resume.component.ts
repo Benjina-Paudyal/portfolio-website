@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,23 +6,32 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.css']
+  styleUrls: ['./resume.component.css'],
 })
 export class ResumeComponent implements AfterViewInit {
+  @ViewChild('resumeSection') resumeSection!: ElementRef;
+
   ngAfterViewInit() {
-    const section = document.querySelector('.resume-section');
+    const section = this.resumeSection.nativeElement;
+    const columns = section.querySelectorAll('.col-md-6');
+
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries, obs) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            section?.classList.add('visible');
-            observer.unobserve(entry.target);
+            section.classList.add('visible');
+
+            columns.forEach((col: HTMLElement, index: number) => {
+              setTimeout(() => col.classList.add('visible'), index * 150);
+            });
+
+            obs.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.3 }
     );
-    if (section) observer.observe(section);
+
+    observer.observe(section);
   }
 }
-

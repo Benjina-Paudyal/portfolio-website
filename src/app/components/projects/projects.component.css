@@ -1,13 +1,13 @@
 .projects-section {
   padding: 5rem 2rem;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   margin: 3rem 1rem;
   text-align: center;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -29,6 +29,7 @@
   display: inline-block;
 }
 
+/* Card animations */
 .project-card {
   display: flex;
   flex-direction: column;
@@ -37,19 +38,15 @@
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   background-color: #f9f9f9;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s;
 }
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 1rem;
-}
-
-.card-body a.btn {
-  margin-top: auto;
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-card:hover {
@@ -72,6 +69,17 @@
   transform: scale(1.05);
 }
 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+}
+
+.card-body a.btn {
+  margin-top: auto;
+}
+
 .card-title {
   color: #3b42a7;
   font-size: 1.1rem;
@@ -87,14 +95,14 @@
 }
 
 .tech-stack .badge {
-  background-color: #f1f3f8 !important; /* soft light gray */
-  color: #3f51b5 !important; /* your primary accent color */
+  background-color: #f1f3f8;
+  color: #3f51b5;
   font-size: 0.8rem;
   padding: 5px 10px;
   border-radius: 8px;
   margin: 2px;
   font-weight: 500;
-  border: 1px solid #d1d9ff; /* subtle border for definition */
+  border: 1px solid #d1d9ff;
   display: inline-block;
 }
 
@@ -114,19 +122,6 @@
   background-color: #303f9f;
 }
 
-/* Fade-in animation */
-.projects-section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.projects-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Responsive adjustments */
 @media (min-width: 992px) {
   .projects-section {
     padding: 5rem 2rem;

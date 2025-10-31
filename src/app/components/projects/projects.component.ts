@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements AfterViewInit {
+  @ViewChild('projectSection') projectSection!: ElementRef;
+
   projects = [
     {
       title: 'StudyJet- A Course Management System',
@@ -24,16 +26,9 @@ export class ProjectsComponent implements AfterViewInit {
         'A full-stack web app to manage movies, genres, and directors.',
       image: 'assets/moviemanagement.png',
       github: 'https://github.com/Benjina-Paudyal/movie_management_system',
-      tech: ['Python', 'Flask', 'Jinja2','SQLite', 'Bootstrap'],
+      tech: ['Python', 'Flask', 'Jinja2', 'SQLite', 'Bootstrap'],
     },
-    {
-      title: 'WaveRiders Squirrel Surf School',
-      description: 'A responsive HTML/CSS website for a fictional surf school.',
-      image: 'assets/waveriders.png',
-      github:
-        'https://github.com/Benjina-Paudyal/Waveriders_Responsive_Website',
-      tech: ['HTML', 'CSS', 'JavaScript'],
-    },
+
     {
       title: 'Portfolio Website',
       description:
@@ -45,18 +40,26 @@ export class ProjectsComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
-    const section = document.querySelector('.projects-section');
+    const section = this.projectSection.nativeElement;
+    const cards = section.querySelectorAll('.project-card');
+
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            section?.classList.add('visible');
-            observer.unobserve(entry.target);
+            section.classList.add('visible');
+            // Stagger each card
+            cards.forEach((card: HTMLElement, index: number) => {
+              setTimeout(() => card.classList.add('visible'), index * 150);
+            });
+
+            obs.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.3 }
     );
-    if (section) observer.observe(section);
+
+    observer.observe(section);
   }
 }

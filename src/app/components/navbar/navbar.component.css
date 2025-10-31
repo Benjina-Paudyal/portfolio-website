@@ -1,17 +1,15 @@
-
-
 .custom-navbar {
   background: linear-gradient(90deg, #3f51b5, #5c6bc0);
-  position: fixed; 
-  top: 0;           
-  z-index: 9999;    
-  width: 100%;  
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: background 0.3s, box-shadow 0.3s;
 }
 
 .navbar-brand {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
   color: #ffffff;
@@ -37,13 +35,10 @@
   transform: translateY(-2px);
 }
 
-/* Active Link Highlight */
 .nav-link.active {
-  border-bottom: 2px solid #ffeb3b;
   color: #ffeb3b;
 }
 
-/* Social Icons */
 .nav-link i {
   transition: color 0.3s, transform 0.3s;
 }
@@ -53,12 +48,10 @@
   transform: translateY(-2px);
 }
 
-/* Mobile menu spacing for icons */
 .nav-item.d-lg-none .nav-link i {
   margin-right: 5px;
 }
 
-/* Desktop social icons spacing */
 .navbar-nav.ms-auto .nav-link i {
   margin-left: 10px;
 }
